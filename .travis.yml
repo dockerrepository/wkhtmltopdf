@@ -3,9 +3,9 @@ env:
     - VERSION=0.46.1
   matrix:
     - DOCKER_BUILD_DIR=./python-2.7
-      IMAGE_NAME=dockerrepository/zappa:2.7
+      IMAGE_NAME=dockerrepository/wkhtmltopdf:2.7
     # - DOCKER_BUILD_DIR=./python-3.6
-    #   IMAGE_NAME=dockerrepository/zappa:3.6
+    #   IMAGE_NAME=dockerrepository/wkhtmltopdf:3.6
 
 sudo: required
 
@@ -21,7 +21,6 @@ deploy:
   on:
     branch:
       - master
-      - test_travis
 
 notifications:
   email: false
