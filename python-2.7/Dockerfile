@@ -4,7 +4,7 @@ LABEL maintainer="nielsonnas@gmail.com"
 
 # Installing dependences
 RUN apt-get update && apt-get install -y xvfb
-RUN apt-get install -y openssl build-essential libssl-dev wget
+RUN apt-get install -y openssl build-essential libssl-dev wget git
 RUN apt-get install -y openssl fontconfig libjpeg62-turbo libxrender1 xfonts-75dpi
 
 WORKDIR /tmp
