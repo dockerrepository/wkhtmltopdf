@@ -17,7 +17,7 @@ script: bash build_image.sh
 
 deploy:
   provider: script
-  script: bash docker_push.sh
+  script: bash deploy_image.sh
   on:
     branch:
       - master
