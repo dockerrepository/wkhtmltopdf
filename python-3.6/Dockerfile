@@ -2,10 +2,16 @@ FROM python:3.6.7-slim-stretch
 
 LABEL maintainer="nielsonnas@gmail.com"
 
+RUN apt update && apt-get install -y locales
+RUN touch /etc/locale.gen && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 # Installing dependences
-RUN apt-get update && apt-get install -y xvfb
-RUN apt-get install -y openssl build-essential libssl-dev wget git
-RUN apt-get install -y openssl fontconfig libjpeg62-turbo libxrender1 xfonts-75dpi
+RUN apt install -y xvfb
+RUN apt install -y openssl build-essential libssl-dev wget git
+RUN apt install -y openssl fontconfig libjpeg62-turbo libxrender1 xfonts-75dpi
 
 WORKDIR /tmp
 RUN wget -q --show-progress https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb && dpkg -i wkhtmltox_0.12.5-1.stretch_amd64.deb && apt -f install
